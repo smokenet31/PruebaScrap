@@ -62,7 +62,7 @@ for i in reviewsPub:
 
 #Arma Tabla
 
-df = pd.DataFrame({'Producto': nameList,'Precio':priceList,'Cant de Reviews': revList}, index=list(range(0,20)))
+df = pd.DataFrame({'Producto': nameList,'Precio':priceList,'Cant de Reviews': revList}, index=list(range(1,21)))
 #df['Producto'] = df['Producto'].str.replace('"','')
 print(df)
 df.to_csv('preciosProductos.csv', index=False)
