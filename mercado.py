@@ -68,6 +68,6 @@ for i in reviewsPub:
 #df['Producto'] = df['Producto'].str.replace('"','')
 
 
-df = pd.DataFrame({'Producto': nameList,'Precio':priceList}, index=list(range(1,cant+1)))
+df = pd.DataFrame({'Producto': nameList,'Precio':priceList}, index=list(range(0,cant)))
 print(df)
 df.to_csv('preciosProductos.csv', index=False)
