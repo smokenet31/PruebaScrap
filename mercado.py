@@ -1,4 +1,5 @@
 from bs4 import BeautifulSoup
+from numpy import can_cast
 import requests
 import pandas as pd
 
@@ -15,9 +16,10 @@ namePub = soup.find_all('h2', class_='ui-search-item__title')
 nameList = list()
 
 count = 0
+cant = 50
 
 for i in namePub:
-    if count < 20:
+    if count < cant:
         nameList.append(i.text)
     else:
         break
@@ -34,7 +36,7 @@ priceList = list()
 count = 0
 
 for i in pricePub:
-    if count < 20:
+    if count < cant:
         priceList.append(i.text)
     else:
         break
@@ -66,6 +68,6 @@ for i in reviewsPub:
 #df['Producto'] = df['Producto'].str.replace('"','')
 
 
-df = pd.DataFrame({'Producto': nameList,'Precio':priceList}, index=list(range(0,20)))
+df = pd.DataFrame({'Producto': nameList,'Precio':priceList}, index=list(range(1,cant+1)))
 print(df)
 df.to_csv('preciosProductos.csv', index=False)
