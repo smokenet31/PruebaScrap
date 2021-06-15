@@ -44,7 +44,7 @@ for i in pricePub:
 
 #Reviews del Producto
 
-reviewsPub = soup.find_all('span', class_='ui-search-reviews__amount')
+"""reviewsPub = soup.find_all('span', class_='ui-search-reviews__amount')
 
 revList = list()
 
@@ -55,14 +55,17 @@ for i in reviewsPub:
         revList.append(i.text)
     else:
         break
-    count += 1
+    count += 1"""
 
 
 
 
 #Arma Tabla
 
-df = pd.DataFrame({'Producto': nameList,'Precio':priceList,'Cant de Reviews': revList}, index=list(range(1,21)))
+#df = pd.DataFrame({'Producto': nameList,'Precio':priceList,'Cant de Reviews': revList}, index=list(range(0,20)))
 #df['Producto'] = df['Producto'].str.replace('"','')
+
+
+df = pd.DataFrame({'Producto': nameList,'Precio':priceList}, index=list(range(0,20)))
 print(df)
 df.to_csv('preciosProductos.csv', index=False)
